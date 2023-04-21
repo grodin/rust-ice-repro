@@ -1,0 +1,18 @@
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: 1.69.0
+   
+      - run: |
+          RUST_BACKTRACE=1 cargo build
