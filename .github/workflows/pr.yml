@@ -12,9 +12,5 @@ jobs:
         with:
           toolchain: 1.69.0
    
-      - uses: actions-rs/cargo@v1
-        with:
-          command: build
-
-
-
+      - run: |
+          RUST_BACKTRACE=1 cargo build
